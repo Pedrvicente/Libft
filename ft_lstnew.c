@@ -6,7 +6,7 @@
 /*   By: pedde-al <pedde-al@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 17:07:21 by pedde-al          #+#    #+#             */
-/*   Updated: 2025/10/27 18:10:12 by pedde-al         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:09:40 by pedde-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*node;
 
-	node = (t_list *)malloc(sizeof(t_list));
+	node = malloc(sizeof(t_list));
 	if (!node)
 		return (NULL);
 	node->content = content;
@@ -36,7 +36,7 @@ t_list	*ft_lstnew(void *content)
     t_list *tmp = n1;
     while (tmp != NULL)
     {
-        printf("Conteudo: %s\n", (char *)tmp->content);
+        printf("Conteudo: %s\n", tmp->content);
         tmp = tmp->next; 
     }
 } */

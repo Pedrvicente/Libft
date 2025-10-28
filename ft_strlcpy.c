@@ -6,7 +6,7 @@
 /*   By: pedde-al <pedde-al@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:31:31 by pedde-al          #+#    #+#             */
-/*   Updated: 2025/10/27 16:15:13 by pedde-al         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:44:31 by pedde-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (i);
 }
 
-int main()
+/* int main()
 {
 	char src[] = "Hello";
 	char dest[10];
 	printf("%zu", ft_strlcpy(dest, src, 6));
 	printf("%s", dest);
-}
+} */

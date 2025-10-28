@@ -6,7 +6,7 @@
 /*   By: pedde-al <pedde-al@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:29:55 by pedde-al          #+#    #+#             */
-/*   Updated: 2025/10/27 13:40:03 by pedde-al         ###   ########.fr       */
+/*   Updated: 2025/10/28 13:36:40 by pedde-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 /* int main()
 {
-	char src[] = "Hello";
-	char dest[10];
-	ft_memcpy(dest, src, 6);
-	printf("%s", dest);
+	char src[10] = "12345";
+	ft_memcpy(src + 1, src, 3);
+	printf("%s", src);
 } */

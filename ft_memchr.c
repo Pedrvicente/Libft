@@ -6,7 +6,7 @@
 /*   By: pedde-al <pedde-al@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 12:36:07 by pedde-al          #+#    #+#             */
-/*   Updated: 2025/10/21 12:55:24 by pedde-al         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:09:48 by pedde-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 /* int main()
 {
-	char str[] = "banana";
-	char *p = ft_memchr(str, 'n', 6);
+	char str[] = NULL;
+	char *p = ft_memchr(str, 'n', 3);
 	printf("%s", p);
 } */

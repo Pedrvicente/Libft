@@ -6,13 +6,13 @@
 /*   By: pedde-al <pedde-al@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:10:17 by pedde-al          #+#    #+#             */
-/*   Updated: 2025/10/27 15:21:04 by pedde-al         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:41:54 by pedde-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (!lst || !f)
 		return ;
