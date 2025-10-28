@@ -1,60 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedde-al <pedde-al@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 18:26:25 by pedde-al          #+#    #+#             */
-/*   Updated: 2025/10/27 14:10:27 by pedde-al         ###   ########.fr       */
+/*   Created: 2025/10/21 17:17:06 by pedde-al          #+#    #+#             */
+/*   Updated: 2025/10/23 14:50:19 by pedde-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_intlen(int n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	len;
-
-	len = 0;
-	if (n <= 0)
-		len++;
-	while (n != 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-char	*ft_itoa(int n)
-{
+	size_t	s_len;
+	size_t	i;
 	char	*str;
-	long	nb;
-	int		len;
 
-	nb = n;
-	len = ft_intlen(n);
-	str = malloc(sizeof(char) * (len + 1));
+	if (!s)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (ft_strdup(""));
+	else if (len > s_len - start)
+		len = s_len - start;
+	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
-	str[len] = '\0';
-	if (nb == 0)
-		str[0] = '0';
-	if (nb < 0)
+	i = 0;
+	while (i < len)
 	{
-		str[0] = '-';
-		nb *= -1;
+		str[i] = s[start + i];
+		i++;
 	}
-	while (nb > 0)
-	{
-		str[--len] = (nb % 10) + '0';
-		nb /= 10;
-	}
+	str[i] = '\0';
 	return (str);
 }
 
 /* int main()
 {
-    printf("%s", ft_itoa(-42));
+	char str[] = "Hello World";
+	char *str_1 = ft_substr(str, 6, 5);
+	printf("%s", str_1);
+	free(str_1);
 } */

@@ -1,60 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedde-al <pedde-al@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 18:26:25 by pedde-al          #+#    #+#             */
-/*   Updated: 2025/10/27 14:10:27 by pedde-al         ###   ########.fr       */
+/*   Created: 2025/10/23 11:59:43 by pedde-al          #+#    #+#             */
+/*   Updated: 2025/10/23 12:19:00 by pedde-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_intlen(int n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	len;
-
-	len = 0;
-	if (n <= 0)
-		len++;
-	while (n != 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-char	*ft_itoa(int n)
-{
+	size_t	i;
+	size_t	len;
 	char	*str;
-	long	nb;
-	int		len;
 
-	nb = n;
-	len = ft_intlen(n);
+	if (!s || !f)
+		return (NULL);
+	len = 0;
+	while (s[len])
+		len++;
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	str[len] = '\0';
-	if (nb == 0)
-		str[0] = '0';
-	if (nb < 0)
+	i = 0;
+	while (s[i])
 	{
-		str[0] = '-';
-		nb *= -1;
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	while (nb > 0)
-	{
-		str[--len] = (nb % 10) + '0';
-		nb /= 10;
-	}
+	str[i] = '\0';
 	return (str);
 }
 
-/* int main()
+/* char	my_toupper(unsigned int i, char c)
 {
-    printf("%s", ft_itoa(-42));
+	(void)i;
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
+}
+
+int main()
+{
+	char *res = ft_strmapi("hello", my_toupper);
+	printf("%s\n", res); // deve imprimir HELLO
+	free(res);
+	return (0);
 } */

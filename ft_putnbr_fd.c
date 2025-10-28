@@ -1,60 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedde-al <pedde-al@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 18:26:25 by pedde-al          #+#    #+#             */
-/*   Updated: 2025/10/27 14:10:27 by pedde-al         ###   ########.fr       */
+/*   Created: 2025/10/23 12:50:04 by pedde-al          #+#    #+#             */
+/*   Updated: 2025/10/23 15:26:41 by pedde-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_intlen(int n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	len;
-
-	len = 0;
-	if (n <= 0)
-		len++;
-	while (n != 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-char	*ft_itoa(int n)
-{
-	char	*str;
 	long	nb;
-	int		len;
 
 	nb = n;
-	len = ft_intlen(n);
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
-	if (nb == 0)
-		str[0] = '0';
 	if (nb < 0)
 	{
-		str[0] = '-';
-		nb *= -1;
+		ft_putchar_fd('-', fd);
+		nb = -nb;
 	}
-	while (nb > 0)
-	{
-		str[--len] = (nb % 10) + '0';
-		nb /= 10;
-	}
-	return (str);
+	if (nb >= 10)
+		ft_putnbr_fd(nb / 10, fd);
+	ft_putchar_fd((nb % 10) + '0', fd);
 }
 
 /* int main()
 {
-    printf("%s", ft_itoa(-42));
+	ft_putnbr_fd(-42, 1);
 } */
