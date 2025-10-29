@@ -6,7 +6,7 @@
 /*   By: pedde-al <pedde-al@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 11:17:00 by pedde-al          #+#    #+#             */
-/*   Updated: 2025/10/23 14:50:00 by pedde-al         ###   ########.fr       */
+/*   Updated: 2025/10/29 11:41:33 by pedde-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
     char str[] = "  Ola   ";
     char set[] = " ";
-    printf("%s", ft_strtrim(str, set));
-} */
+    char *trimmed;
+
+    trimmed = ft_strtrim(str, set);
+    if (trimmed == NULL)
+        return (1);
+		printf("%s\n", trimmed);
+		free(trimmed);
+		return (0);
+}*/
