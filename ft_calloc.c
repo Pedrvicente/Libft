@@ -6,7 +6,7 @@
 /*   By: pedde-al <pedde-al@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 15:27:20 by pedde-al          #+#    #+#             */
-/*   Updated: 2025/10/28 11:17:13 by pedde-al         ###   ########.fr       */
+/*   Updated: 2025/11/04 20:05:54 by pedde-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,15 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t			total;
-	size_t			i;
-	unsigned char	*str;
+	void	*ptr;
 
-	total = nmemb * size;
-	str = (unsigned char *)malloc(total);
-	if (!str)
+	if (nmemb != 0 && size != 0 && size > SIZE_MAX / nmemb)
 		return (NULL);
-	i = 0;
-	while (i < total)
-	{
-		str[i] = 0;
-		i++;
-	}
-	return (str);
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }
 
 /* int main(void)
